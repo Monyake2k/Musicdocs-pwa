@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MusicDocs – Documentary Editing for Musicians</title>
+  
+  <!-- Manifest for PWA -->
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#111111">
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('/service-worker.js');
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 1em 2em;
+      text-align: center;
+    }
+    nav {
+      background: #222;
+      display: flex;
+      justify-content: center;
+      padding: 0.5em;
+    }
+    nav a {
+      color: #fff;
+      margin: 0 15px;
+      text-decoration: none;
+    }
+    section {
+      padding: 2em;
+    }
+    .hero {
+      background: url('your-image.jpg') no-repeat center center/cover;
+      color: white;
+      text-align: center;
+      padding: 6em 2em;
+    }
+    .services, .portfolio, .testimonials, .contact {
+      background: #fff;
+      margin-bottom: 1em;
+    }
+    footer {
+      background: #111;
+      color: #fff;
+      text-align: center;
+      padding: 1em;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Lock screen -->
+  <div id="lockScreen" style="
+    position: fixed; 
+    top: 0; left: 0; 
+    width: 100%; height: 100%; 
+    background: #111; 
+    color: white; 
+    display: flex; 
+    flex-direction: column; 
+    justify-content: center; 
+    align-items: center; 
+    z-index: 9999;
+  ">
+    <h2>Enter Passcode</h2>
+    <input type="password" id="passcode" placeholder="Passcode">
+    <button onclick="checkPasscode()">Unlock</button>
+    <p id="error" style="color: red; display: none;">Wrong passcode</p>
+  </div>
+
+  <script>
+    function checkPasscode() {
+      const input = document.getElementById("passcode").value;
+      const correct = "5747"; // 🔑 Producer passcode
+      if (input === correct) {
+        document.getElementById("lockScreen").style.display = "none";
+      } else {
+        document.getElementById("error").style.display = "block";
+      }
+    }
+  </script>
+
+  <header>
+    <h1>MusicDocs</h1>
+    <p>Crafting compelling documentary videos for musicians</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <section class="hero">
+    <h2>Turn Your Music Journey into a Visual Story</h2>
+    <p>We create professional, emotional, and cinematic documentary videos for musicians.</p>
+  </section>
+
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We are a team of editors and filmmakers passionate about music and storytelling. Whether you're an emerging artist or an established performer, we help you document your journey in a powerful way.</p>
+  </section>
+
+  <section id="services" class="services">
+    <h2>Our Services</h2>
+    <ul>
+      <li>Full-Length Music Documentaries</li>
+      <li>Behind-the-Scenes Editing</li>
+      <li>Mini Docs for Social Media</li>
+      <li>Live Performance Montage</li>
+      <li>Tour Recap Videos</li>
+    </ul>
+  </section>
+
+  <section id="portfolio" class="portfolio">
+    <h2>Portfolio</h2>
+    <p>[Embed sample videos or images of past work here]</p>
+  </section>
+
+  <section id="testimonials" class="testimonials">
+    <h2>What Musicians Say</h2>
+    <blockquote>"Their work captured the soul of our band better than we could have imagined!" – Indie Vibes</blockquote>
+    <blockquote>"A true storytelling partner for any artist." – DJ Echo</blockquote>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <p>Email: contact@musicdocs.com</p>
+    <p>Instagram: @musicdocs_official</p>
+    <p>Or use our <a href="#">contact form</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 MusicDocs. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
